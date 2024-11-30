@@ -2,11 +2,7 @@
   - User
   - Event
   - Donation
-  - Roles
-  - Permissions
-  - Event_Roles
-  - Donation_Types
-  - Role_Permissions
+  - Subscription
   - Donations_Items
 
 # Repository
@@ -36,48 +32,20 @@
   - Buscar as doações de um usuário em um evento (GET BY EVENT_ID AND USER_ID)
   - Deletar uma doação (DELETE)
 
-  ## Roles
-  - Criar uma role (POST)
-  - Atualizar uma role (PUT)
-  - Buscar por uma role (GET BY ID)
-  - Buscar por todas as roles (GET ALL)
-  - Deletar uma role (DELETE)
-
-  ## Permissions
-  - Criar uma permissão (POST)
-  - Atualizar uma permissão (PUT)
-  - Buscar por uma permissão (GET BY ID)
-  - Buscar por todas as permissões (GET ALL)
-  - Deletar uma permissão (DELETE)
-
-  ## Event_Roles
-  - Criar um event_role (POST)
-  - Atualizar um event_role (PUT)
-  - Buscar por um event_role (GET BY ID)
-  - Buscar por todos os event_roles (GET ALL)
-  - Buscar por todos os event_roles de um usuário (GET BY USER_ID)
-  - Buscar por todos os event_roles em um evento (GET BY EVENT_ID) (buscar por todos os usuários de um evento)
-  - Buscar por todos os event_roles de uma role em evento (GET BY ROLE_ID AND EVENT_ID) (saber quantas pessoas de uma role tem nesse evento) 
-  - Deletar um event_role (DELETE)
-
-  ## Donation_Types
-  - Criar um tipo de doação (POST)
-  - Buscar por um tipo de doação (GET BY ID)
-  - Buscar por todos os tipos de doação (GET ALL)
-  - Deletar um tipo de doação (DELETE)
-
-  ## Role_Permissions
-  - Criar uma permissão de role (POST)
-  - Buscar por uma permissão de role (GET BY ID)
-  - Buscar por todas as permissões de uma role (GET BY ROLE_ID)
-  - Buscar por todas as permissões de role (GET ALL)
-  - Deletar uma permissão de role (DELETE)
+  ## Subscription
+    - Criar um subs (POST)
+    - Atualizar um subs (PUT)
+    - Buscar por um subs (GET BY ID)
+    - Buscar por todos os subs (GET ALL)
+    - Buscar por todos os subs de um usuário (GET BY USER_ID)
+    - Buscar por todos os subs em um evento (GET BY EVENT_ID) (buscar por todos os usuários de um evento) 
+    - Deletar um subs (DELETE)
 
   ## Donations_Items
   - Criar um item de doação (POST)
   - Atualizar um item de doação (PUT)
   - Buscar por um item de doação (GET BY ID)
-  - Buscar por todos os items de um tipo (GET BY DONATION_TYPE_ID)
+  - Buscar por todos os items de um tipo (GET BY DONATION_TYPE)
   - Buscar por todos os itens de doação (GET ALL)
   - Deletar um item de doação (DELETE)
 
@@ -95,25 +63,53 @@
   - Qualquer pessoa pode buscar por doações
   - Para criar ou deletar uma doação é necessário estar logado e ter permissão
 
-  ## Roles
-  - Apenas usuários com permissão podem criar, atualizar ou deletar roles
-  - Todos os usuários podem ver as roles
-
-  ## Permissions
-  - Apenas usuários com permissão podem ver,criar, atualizar ou deletar permissões
-  - Um organizador tem todas as permissões por padrão
-
-  ## Event_Roles
-  - Apenas usuários com permissão e logados podem atualizar ou deletar event_roles 
-  - Para se-inscrever no evento é necessário estar logado (criar um event_roles)
-
-  ## Donation_Types
-  - Apenas usuários com permissão podem criar ou deletar tipos de doação
-  - Qualquer pessoa pode buscar por tipos de doação
-
-  ## Role_Permissions
-  - Apenas usuários com permissão podem criar ou deletar permissões de role
+  ## Subscription
+  - Apenas usuários com permissão e logados podem atualizar ou deletar subs 
+  - Para se-inscrever no evento é necessário estar logado (criar um subs)
 
   ## Donations_Items
   - Qualquer pessoa pode buscar por itens de doação
   - Para criar, atualizar ou deletar um item de doação é necessário estar logado e ter permissão
+  
+# Controller
+  ## UserController
+  - Criar um usuário (POST /users)
+  - Atualizar um usuário (PUT /users/{id})
+  - Buscar por um usuário (GET /users/{id})
+  - Deletar um usuário (DELETE /users/{id})
+
+  ## EventController
+  - Criar um evento (POST /events)
+  - Atualizar um evento (PUT /events/{id})
+  - Buscar por um evento (GET /events/{id})
+  - Buscar por eventos em uma data (GET /events/date/{date})
+  - Buscar por eventos pelo nome (GET /events/name/{name})
+  - Buscar por eventos em um local (GET /events/location/{location})
+  - Buscar por todos os eventos (GET /events)
+  - Deletar evento (DELETE /events/{id})
+
+  ## DonationController
+  - Criar uma doação (POST /donations)
+  - Buscar por uma doação (GET /donations/{id})
+  - Buscar por todas as doações (GET /donations)
+  - Buscar por todas as doações de um usuário (GET /donations/user/{userId})
+  - Buscar por todas as doações de um evento (GET /donations/event/{eventId})
+  - Buscar as doações de um usuário em um evento (GET /donations/event/{eventId}/user/{userId})
+  - Deletar uma doação (DELETE /donations/{id})
+
+  ## SubscriptionController
+  - Criar um subs (POST /subs)
+  - Atualizar um subs (PUT /subs/{id})
+  - Buscar por um subs (GET /subs/{id})
+  - Buscar por todos os subs (GET /subs)
+  - Buscar por todos os subs de um usuário (GET /subs/user/{userId})
+  - Buscar por todos os subs em um evento (GET /subs/event/{eventId})
+  - Deletar um subs (DELETE /subs/{id})
+
+  ## DonationsItemsController
+  - Criar um item de doação (POST /donations_items)
+  - Atualizar um item de doação (PUT /donations_items/{id})
+  - Buscar por um item de doação (GET /donations_items/{id})
+  - Buscar por todos os items de um tipo (GET /donations_items/type/{donationTypeId})
+  - Buscar por todos os itens de doação (GET /donations_items)
+  - Deletar um item de doação (DELETE /donations_items/{id})
