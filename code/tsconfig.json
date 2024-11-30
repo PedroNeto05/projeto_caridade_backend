@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "target": "ES2022",
     "paths": {
-      "@/*": ["src/*"] 
+      "@/*": ["src/app/*"] 
     },
     "lib": ["ES2023"],
     "module": "node16",
