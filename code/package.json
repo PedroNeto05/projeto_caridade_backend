@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "./src/http/server.ts",
   "scripts": {
-    "dev": "tsx watch --env-file ./.env --no-check ./src/http/server.ts"
+    "dev": "tsx watch --env-file ./.env --no-check ./src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +25,9 @@
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
     "express": "^4.21.1",
+    "http-errors": "^2.0.0",
     "zod": "^3.23.8"
   }
 }
