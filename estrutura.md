@@ -74,9 +74,9 @@
 # Controller
   ## UserController
   - Criar um usuário (POST /users)
-  - Atualizar um usuário (PUT /users/{id})
+  - Atualizar um usuário (PUT /users)
   - Buscar por um usuário (GET /users/{id})
-  - Deletar um usuário (DELETE /users/{id})
+  - Deletar um usuário (DELETE /users)
 
   ## EventController
   - Criar um evento (POST /events)
