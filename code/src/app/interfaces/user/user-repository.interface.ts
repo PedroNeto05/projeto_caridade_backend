@@ -13,3 +13,7 @@ export interface IFindUserByEmailRepository {
 export interface IUpdateUserRepository {
   update(params: UpdateUserDTO): Promise<void>;
 }
+
+export interface IFindUserByIdRepository {
+  findById(id: number): Promise<User | null>;
+}

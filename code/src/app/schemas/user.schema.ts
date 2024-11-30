@@ -22,3 +22,13 @@ export const updateUserSchema = z
     message: 'New email cannot be the same as current email',
     path: ['newEmail'],
   });
+
+export const findUserByIdSchema = z.object({
+  id: z.string().transform((val) => {
+    const parsed = parseInt(val);
+
+    if (isNaN(parsed)) throw new Error('id must be a valid number');
+
+    return parsed;
+  }),
+});
