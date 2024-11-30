@@ -3,15 +3,10 @@ import { IFindUserByEmailRepository } from '@/interfaces/user/user-repository.in
 import { User } from '@prisma/client';
 
 export class FindUserByEmailRepository implements IFindUserByEmailRepository {
-  async findByEmail(email: string): Promise<Partial<User> | null> {
+  async findByEmail(email: string): Promise<User | null> {
     const user = await prisma.user.findUnique({
       where: {
         email,
-      },
-      select: {
-        id: true,
-        email: true,
-        name: true,
       },
     });
 

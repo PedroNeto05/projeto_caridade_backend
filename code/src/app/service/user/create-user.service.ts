@@ -6,6 +6,7 @@ import {
 } from '@/interfaces/user/user-repository.interface';
 import { ICreateUserService } from '@/interfaces/user/user-service.interfaces';
 import { createUserSchema } from '@/schemas/user.schema';
+import { hash } from 'bcryptjs';
 
 export class CreateUserService implements ICreateUserService {
   constructor(
@@ -19,11 +20,15 @@ export class CreateUserService implements ICreateUserService {
     const user = await this.findUserByEmailRepository.findByEmail(email);
 
     if (user) {
-      httpError.Conflict('user already exist');
+      throw new httpError.Conflict('user already exist');
     }
 
-    await this.createUserRepository.save({ name, email, password });
+    const passwordHash = await hash(password, 10);
 
-    throw new Error('Method not implemented.');
+    await this.createUserRepository.save({
+      name,
+      email,
+      password: passwordHash,
+    });
   }
 }

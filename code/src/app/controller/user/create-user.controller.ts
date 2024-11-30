@@ -10,7 +10,7 @@ export class CreateUserController {
 
       await this.createUserService.execute({ name, email, password });
 
-      return res.status(200).send();
+      return res.status(201).send();
     } catch (error) {
       next(error);
     }
