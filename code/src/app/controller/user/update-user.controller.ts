@@ -8,7 +8,7 @@ export class UpdateUserController {
     try {
       const { newName, newEmail, currentPassword, newPassword } = req.body;
 
-      this.updateUserService.execute({
+      await this.updateUserService.execute({
         newName,
         newEmail,
         currentEmail: req.userEmail,
