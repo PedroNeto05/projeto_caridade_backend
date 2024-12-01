@@ -28,7 +28,9 @@ export class LoginService implements ILoginService {
       throw new httpError.Unauthorized('Invalid email or password');
     }
 
-    const token = jwt.sign({ id: user.id, email }, env.SECRET_KEY);
+    const token = jwt.sign({ id: user.id, email }, env.SECRET_KEY, {
+      expiresIn: 60,
+    });
 
     return token;
   }
