@@ -9,7 +9,7 @@ export class DeleteUserController {
       const { userEmail } = req;
       const { password } = req.body;
       await this.deleteUserService.execute({ email: userEmail, password });
-      return res.status(201).send();
+      return res.status(204).send();
     } catch (error) {
       next(error);
     }
