@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import { userRoutes } from './routes/userRoutes';
 import { errorMiddleware } from './middlewares/error';
 import { loginRoutes } from './routes/loginRoutes';
+import { eventRoutes } from './routes/eventRoutes';
 
 class App {
   public app: Application;
@@ -23,6 +24,7 @@ class App {
   private routes() {
     this.app.use('/user', userRoutes);
     this.app.use('/login', loginRoutes);
+    this.app.use('/event', eventRoutes);
   }
 }
 
