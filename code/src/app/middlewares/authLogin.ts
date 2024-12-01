@@ -28,7 +28,7 @@ export function authLogin(
 
   try {
     const { id, email } = jwt.verify(token, env.SECRET_KEY) as UserToken;
-    req.userId = id;
+    req.userId = parseInt(id);
     req.userEmail = email;
     return next();
   } catch (error) {
