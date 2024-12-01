@@ -29,7 +29,7 @@ export class LoginService implements ILoginService {
     }
 
     const token = jwt.sign({ id: user.id, email }, env.SECRET_KEY, {
-      expiresIn: 60,
+      expiresIn: '1d',
     });
 
     return token;
