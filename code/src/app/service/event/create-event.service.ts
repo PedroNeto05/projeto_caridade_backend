@@ -2,14 +2,14 @@ import httpError from 'http-errors';
 import { CreateEventDTO } from '@/dtos/event/create-event.dto';
 import {
   ICreateEventRepository,
-  IFindEventByNameAndDate,
+  IFindEventByNameAndDateRepository,
 } from '@/interfaces/event/event-repository.interface';
 import { ICreateEventService } from '@/interfaces/event/event-service.interface';
 import { createEventSchema } from '@/schemas/event.schema';
 export class CreateEventService implements ICreateEventService {
   constructor(
     private createEventRepository: ICreateEventRepository,
-    private findEventByNameAndDateRepository: IFindEventByNameAndDate
+    private findEventByNameAndDateRepository: IFindEventByNameAndDateRepository
   ) {}
   async execute(params: CreateEventDTO): Promise<void> {
     const { userId, name, location, date, description } =
