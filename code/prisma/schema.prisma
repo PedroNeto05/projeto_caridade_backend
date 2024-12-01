@@ -14,10 +14,73 @@ datasource db {
 }
 
 model User {
-  id        Int   @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
   password  String
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+
+  Subscription Subscription[]
+  Donation     Donation[]
+  Event        Event[]
+
+  @@index([email])
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  name        String
+  date        DateTime
+  location    String
+  description String?
+  createdById Int
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  createdBy   User     @relation(fields: [createdById], references: [id], onDelete: Cascade)
+
+  Donation     Donation[]
+  Subscription Subscription[]
+
+  @@index([createdById])
+}
+
+model Donation {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  eventId   Int
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  DonationItem DonationItem[]
+
+  @@index([userId])
+  @@index([eventId])
+}
+
+model Subscription {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  eventId   Int
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([eventId])
+}
+
+model DonationItem {
+  id          Int      @id @default(autoincrement())
+  donationId  Int
+  description String
+  quantity    Float
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  Donation    Donation @relation(fields: [donationId], references: [id], onDelete: Cascade)
+
+  @@index([donationId])
 }
