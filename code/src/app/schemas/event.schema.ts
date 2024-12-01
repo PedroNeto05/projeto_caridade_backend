@@ -8,6 +8,7 @@ export const createEventSchema = z.object({
   description: z.string().optional(),
 });
 
+// TODO ajeitar o date desse schema, pois esta validando errado
 export const updateEventSchema = z.object({
   userId: z.number(),
   eventId: z.number(),
