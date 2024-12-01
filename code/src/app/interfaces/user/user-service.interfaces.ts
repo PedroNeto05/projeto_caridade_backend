@@ -1,5 +1,6 @@
 import { CreateUserDTO } from '@/dtos/user/create-user.dto';
-import { FindUserByIdDTO } from '@/dtos/user/get-user.dto';
+import { DeleteUserDTO } from '@/dtos/user/delete-user.dto';
+import { FindUserByIdDTO } from '@/dtos/user/find-user-by-id.dto';
 import { UpdateUserDTO } from '@/dtos/user/update-user.dto';
 import { User } from '@prisma/client';
 
@@ -13,4 +14,8 @@ export interface IUpdateUserService {
 
 export interface IFindUserByIdService {
   execute(params: FindUserByIdDTO): Promise<User>;
+}
+
+export interface IDeleteUserService {
+  execute(params: DeleteUserDTO): Promise<void>;
 }
