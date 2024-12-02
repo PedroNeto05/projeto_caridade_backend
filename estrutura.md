@@ -1,15 +1,22 @@
+# Componentes
+  - Pedro Nascimento de Paiva Fernandes Neto
+  - Hélio Arruda Câmara Neto
+
+# Link do Projeto
+  - https://github.com/PedroNeto05/projeto_caridade_backend
+
 # Descrição
   - O objetivo é desenvolver uma API RESTful para a organização de eventos de doações, fornecendo endpoints que permitam gerenciar de forma eficiente todas as operações necessárias. Essa API será responsável por lidar com o cadastro, autenticação e autorização.
   - A API incluirá recursos para gerenciar eventos de doações, permitindo a criação, atualização, listagem e exclusão de eventos. Cada evento poderá conter informações como título, descrição, data, local. Também será possível registrar e consultar doações associadas aos eventos, com detalhes como tipo de doação (dinheiro, bens ou serviços), quantidade e identificação do doador, garantindo rastreabilidade.
 
-# Entity
+# Entities
   - User
   - Event
   - Donation
   - Subscription
   - Donations_Items
 
-# Repository
+# Repositories
   ## User
   - Criar um usuário (POST)
   - Atualizar um usuário (PUT)
@@ -32,17 +39,17 @@
   - Deletar uma doação (DELETE)
 
   ## Subscription
-    - Criar um subs (POST)
-    - Buscar por todos os subs de um usuário (GET BY USER_ID)
-    - Buscar por todos os subs em um evento (GET BY EVENT_ID) (buscar por todos os usuários de um evento) 
-    - Deletar um subs (DELETE)
+  - Criar um subs (POST)
+  - Buscar por todos os subs de um usuário (GET BY USER_ID)
+  - Buscar por todos os subs em um evento (GET BY EVENT_ID) (buscar por todos os usuários de um evento) 
+  - Deletar um subs (DELETE)
 
   ## Donations_Items
   - Criar um item de doação (POST)
   - Atualizar um item de doação (PUT)
   - Deletar um item de doação (DELETE)
 
-# Service
+# Services
   ## User
   - Qualquer pessoa pode criar uma usuário com email único
   - Para atualizar ou deletar um usuário é necessário estar logado
@@ -62,7 +69,7 @@
   ## Donations_Items
   - Para criar, atualizar ou deletar um item de doação é necessário estar logado e ser dono do evento
   
-# Controller
+# Controllers
   ## UserController
   - Criar um usuário (POST /users)
   - Atualizar um usuário (PUT /users)
