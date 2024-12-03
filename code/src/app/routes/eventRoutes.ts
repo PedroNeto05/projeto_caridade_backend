@@ -1,4 +1,5 @@
 import { CreateEventController } from '@/controller/event/create-evente.controller';
+import { FindEventByIdController } from '@/controller/event/find-event-by-id.controller';
 import { UpdateCreateEventController } from '@/controller/event/update-event.controller';
 import { authLogin } from '@/middlewares/authLogin';
 import { CreateEventRepository } from '@/repository/event/create-event.repository';
@@ -6,6 +7,7 @@ import { FindEventByIdRepository } from '@/repository/event/find-event-by-id.rep
 import { FindEventByNameAndDateRepository } from '@/repository/event/find-event-by-name-and-date.repository';
 import { UpdateEventRepository } from '@/repository/event/update-event.repository';
 import { CreateEventService } from '@/service/event/create-event.service';
+import { FindEventByIdService } from '@/service/event/find-event-by-id.service';
 import { UpdateEventService } from '@/service/event/update-event.service';
 import { Router } from 'express';
 
@@ -35,4 +37,11 @@ eventRoutes.put('/:id', authLogin, (req, res, next) => {
   updateEventController.handle(req, res, next);
 });
 
+const findEventByIdService = new FindEventByIdService(findEventByIdRepository);
+const findEventByIdController = new FindEventByIdController(
+  findEventByIdService
+);
+eventRoutes.get('/:id', (req, res, next) => {
+  findEventByIdController.handle(req, res, next);
+});
 export { eventRoutes };
