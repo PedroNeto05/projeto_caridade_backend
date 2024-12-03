@@ -1,4 +1,5 @@
 import { CreateEventDTO } from '@/dtos/event/create-event.dto';
+import { FindEventByCreatedByDTO } from '@/dtos/event/find-event-by-created-by.dto';
 import { FindEventByIdDTO } from '@/dtos/event/find-event-by-id.dto';
 import { FindEventByNameDTO } from '@/dtos/event/find-event-by-name.dto';
 import { UpdateEventDTO } from '@/dtos/event/update-event.dto';
@@ -22,4 +23,8 @@ export interface IFindEventByNameService {
 
 export interface IFindAllEventsService {
   execute(): Promise<Event[]>;
+}
+
+export interface IFindEventByCreatedByService {
+  execute(params: FindEventByCreatedByDTO): Promise<Event[]>;
 }

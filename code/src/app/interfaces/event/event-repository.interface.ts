@@ -1,4 +1,5 @@
 import { CreateEventDTO } from '@/dtos/event/create-event.dto';
+import { FindEventByCreatedByDTO } from '@/dtos/event/find-event-by-created-by.dto';
 import { FindEventByNameDTO } from '@/dtos/event/find-event-by-name.dto';
 import { UpdateEventDTO } from '@/dtos/event/update-event.dto';
 import { Event } from '@prisma/client';
@@ -25,4 +26,8 @@ export interface IFindEventByNameRepository {
 
 export interface IFindAllEventsRepository {
   findAll(): Promise<Event[]>;
+}
+
+export interface IFindEventByCreatedByRepository {
+  findByCreatedBy(params: FindEventByCreatedByDTO): Promise<Event[]>;
 }
