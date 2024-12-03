@@ -1,5 +1,6 @@
 import { CreateEventController } from '@/controller/event/create-event.controller';
 import { DeleteEventController } from '@/controller/event/delete-event.controller';
+import { FindAllEventsController } from '@/controller/event/find-all-events.controller';
 import { FindEventByCreatedByController } from '@/controller/event/find-by-createdBy.controller';
 import { FindEventByIdController } from '@/controller/event/find-event-by-id.controller';
 import { FindEventByNameController } from '@/controller/event/find-event-by-name.controller';
@@ -7,6 +8,7 @@ import { UpdateCreateEventController } from '@/controller/event/update-event.con
 import { authLogin } from '@/middlewares/authLogin';
 import { CreateEventRepository } from '@/repository/event/create-event.repository';
 import { DeleteEventRepository } from '@/repository/event/delete-event.repository';
+import { FindAllEventsRepository } from '@/repository/event/find-all-events.repository';
 import { FindEventByCreatedByRepository } from '@/repository/event/find-event-by-created-by.repository';
 import { FindEventByIdRepository } from '@/repository/event/find-event-by-id.repository';
 import { FindEventByNameAndDateRepository } from '@/repository/event/find-event-by-name-and-date.repository';
@@ -15,6 +17,7 @@ import { UpdateEventRepository } from '@/repository/event/update-event.repositor
 import { FindUserByIdRepository } from '@/repository/user/find-user-by-id.repository';
 import { CreateEventService } from '@/service/event/create-event.service';
 import { DeleteEventService } from '@/service/event/delete-event.serivce';
+import { FindAllEventsService } from '@/service/event/find-all-events.service';
 import { FindEventByCreatedByService } from '@/service/event/find-event-by-created-by.service';
 import { FindEventByIdService } from '@/service/event/find-event-by-id.service';
 import { FindEventByNameService } from '@/service/event/find-event-by-name.service';
@@ -87,6 +90,15 @@ const deleteEventService = new DeleteEventService(
 const deleteEventController = new DeleteEventController(deleteEventService);
 eventRoutes.delete('/:id', authLogin, (req, res, next) => {
   deleteEventController.handle(req, res, next);
+});
+
+const findAllEventsRepository = new FindAllEventsRepository();
+const findAllEventsService = new FindAllEventsService(findAllEventsRepository);
+const findAllEventsController = new FindAllEventsController(
+  findAllEventsService
+);
+eventRoutes.get('/', (req, res, next) => {
+  findAllEventsController.handle(req, res, next);
 });
 
 export { eventRoutes };
