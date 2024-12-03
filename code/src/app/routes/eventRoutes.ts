@@ -85,7 +85,7 @@ const deleteEventService = new DeleteEventService(
   deleteEventRepository
 );
 const deleteEventController = new DeleteEventController(deleteEventService);
-eventRoutes.delete('/:id', (req, res, next) => {
+eventRoutes.delete('/:id', authLogin, (req, res, next) => {
   deleteEventController.handle(req, res, next);
 });
 
