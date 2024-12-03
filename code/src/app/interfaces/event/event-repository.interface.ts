@@ -22,3 +22,7 @@ export interface IUpdateEventRepository {
 export interface IFindEventByNameRepository {
   findByName(params: FindEventByNameDTO): Promise<Event[]>;
 }
+
+export interface IFindAllEventsRepository {
+  findAll(): Promise<Event[]>;
+}

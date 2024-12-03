@@ -12,10 +12,14 @@ export interface IUpdateEventService {
   execute(params: UpdateEventDTO): Promise<void>;
 }
 
-export interface IFindEventByIdSerivce {
+export interface IFindEventByIdService {
   execute(params: FindEventByIdDTO): Promise<Event | null>;
 }
 
-export interface IFindEventByNameSerivce {
+export interface IFindEventByNameService {
   execute(params: FindEventByNameDTO): Promise<Event[]>;
+}
+
+export interface IFindAllEventsService {
+  execute(): Promise<Event[]>;
 }
