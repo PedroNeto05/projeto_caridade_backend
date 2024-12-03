@@ -7,8 +7,10 @@ export class FindEventByIdController {
     try {
       const { id } = req.params;
 
-      this.findEventByIdService.execute({ id: parseInt(id) });
-      return res.status(200).send();
+      const event = await this.findEventByIdService.execute({
+        id: parseInt(id),
+      });
+      return res.status(200).json(event);
     } catch (error) {
       next(error);
     }
