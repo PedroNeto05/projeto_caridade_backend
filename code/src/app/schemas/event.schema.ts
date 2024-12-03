@@ -30,3 +30,9 @@ export const findEventByIdSchema = z.object({
 export const findEventByNameSchema = z.object({
   name: z.string(),
 });
+
+export const deleteEventSchema = z.object({
+  eventId: z.number(),
+  userId: z.number(),
+  password: z.string().min(6),
+});

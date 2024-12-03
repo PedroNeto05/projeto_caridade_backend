@@ -1,4 +1,5 @@
 import { CreateEventDTO } from '@/dtos/event/create-event.dto';
+import { DeleteEventDTO } from '@/dtos/event/delete-event.dto';
 import { FindEventByCreatedByDTO } from '@/dtos/event/find-event-by-created-by.dto';
 import { FindEventByNameDTO } from '@/dtos/event/find-event-by-name.dto';
 import { UpdateEventDTO } from '@/dtos/event/update-event.dto';
@@ -30,4 +31,8 @@ export interface IFindAllEventsRepository {
 
 export interface IFindEventByCreatedByRepository {
   findByCreatedBy(params: FindEventByCreatedByDTO): Promise<Event[]>;
+}
+
+export interface IDeleteEventRepository {
+  delete(params: DeleteEventDTO): Promise<void>;
 }
