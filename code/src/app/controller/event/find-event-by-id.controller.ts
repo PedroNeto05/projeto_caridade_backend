@@ -1,8 +1,8 @@
-import { IFindEventByIdSerivce } from '@/interfaces/event/event-service.interface';
+import { IFindEventByIdService } from '@/interfaces/event/event-service.interface';
 import type { Request, Response, NextFunction } from 'express';
 
 export class FindEventByIdController {
-  constructor(private findEventByIdService: IFindEventByIdSerivce) {}
+  constructor(private findEventByIdService: IFindEventByIdService) {}
   async handle(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;

@@ -1,10 +1,10 @@
 import { FindEventByNameDTO } from '@/dtos/event/find-event-by-name.dto';
 import { IFindEventByNameRepository } from '@/interfaces/event/event-repository.interface';
-import { IFindEventByNameSerivce } from '@/interfaces/event/event-service.interface';
+import { IFindEventByNameService } from '@/interfaces/event/event-service.interface';
 import { findEventByNameSchema } from '@/schemas/event.schema';
 import { Event } from '@prisma/client';
 
-export class FindEventByNameService implements IFindEventByNameSerivce {
+export class FindEventByNameService implements IFindEventByNameService {
   constructor(private findEventByNameRepository: IFindEventByNameRepository) {}
   async execute(params: FindEventByNameDTO): Promise<Event[]> {
     const { name } = findEventByNameSchema.parse(params);
