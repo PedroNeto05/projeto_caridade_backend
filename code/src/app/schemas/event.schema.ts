@@ -26,3 +26,7 @@ export const updateEventSchema = z.object({
 export const findEventByIdSchema = z.object({
   id: z.number(),
 });
+
+export const findEventByNameSchema = z.object({
+  name: z.string(),
+});

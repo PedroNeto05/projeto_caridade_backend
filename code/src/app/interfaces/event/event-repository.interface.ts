@@ -1,4 +1,5 @@
 import { CreateEventDTO } from '@/dtos/event/create-event.dto';
+import { FindEventByNameDTO } from '@/dtos/event/find-event-by-name.dto';
 import { UpdateEventDTO } from '@/dtos/event/update-event.dto';
 import { Event } from '@prisma/client';
 
@@ -16,4 +17,8 @@ export interface IFindEventByIdRepository {
 
 export interface IUpdateEventRepository {
   update(params: Partial<UpdateEventDTO>): Promise<void>;
+}
+
+export interface IFindEventByNameRepository {
+  findByName(params: FindEventByNameDTO): Promise<Event[]>;
 }
