@@ -77,7 +77,8 @@ model Subscription {
 model DonationItem {
   id          Int      @id @default(autoincrement())
   donationId  Int
-  description String
+  description String?
+  type        String
   quantity    Float
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
