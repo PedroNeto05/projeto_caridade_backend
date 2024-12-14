@@ -1,4 +1,5 @@
 import { CreateDonationDTO } from '@/dtos/donation/create-donation.dto';
+import { DeleteDonationDTO } from '@/dtos/donation/delete-donation.dto';
 import { FindEventDonationsDTO } from '@/dtos/donation/find-event-donations.dto';
 import { FindUserDonationsDTO } from '@/dtos/donation/find-user-donations.dto';
 import { Donation } from '@prisma/client';
@@ -13,4 +14,8 @@ export interface IFindUserDonationsService {
 
 export interface IFindEventDonationsService {
   execute(params: FindEventDonationsDTO): Promise<Donation[]>;
+}
+
+export interface IDeleteDonationService {
+  execute(params: DeleteDonationDTO): Promise<void>;
 }
