@@ -1,4 +1,5 @@
 import { CreateSubscriptionDTO } from '@/dtos/subscription/create-subscroption.dto';
+import { FindEventSubscriptionsDTO } from '@/dtos/subscription/find-event-subscriptions.dto';
 import { FindUserSubscriptionByUserIdDTO } from '@/dtos/subscription/find-user-subscription-by-userId.dto';
 import { Subscription } from '@prisma/client';
 
@@ -8,4 +9,8 @@ export interface ICreateSubscriptionService {
 
 export interface IFindUserSubscriptionByUserIdService {
   execute(params: FindUserSubscriptionByUserIdDTO): Promise<Subscription[]>;
+}
+
+export interface IFindEventSubscriptionsService {
+  execute(params: FindEventSubscriptionsDTO): Promise<Subscription[]>;
 }

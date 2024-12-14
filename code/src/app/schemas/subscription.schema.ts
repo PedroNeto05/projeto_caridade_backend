@@ -10,3 +10,7 @@ export const createSubscriptionSchema = z.object({
 export const findUserSubscriptionByUserIdSchema = z.object({
   userId: z.number(),
 });
+
+export const findEventSubscriptionsSchema = z.object({
+  eventId: z.number(),
+});
