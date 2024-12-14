@@ -3,6 +3,7 @@ import { userRoutes } from './routes/userRoutes';
 import { errorMiddleware } from './middlewares/error';
 import { loginRoutes } from './routes/loginRoutes';
 import { eventRoutes } from './routes/eventRoutes';
+import { subscriptionRoutes } from './routes/subscriptionRoutes';
 
 class App {
   public app: Application;
@@ -25,6 +26,7 @@ class App {
     this.app.use('/user', userRoutes);
     this.app.use('/login', loginRoutes);
     this.app.use('/event', eventRoutes);
+    this.app.use('/subscription', subscriptionRoutes);
   }
 }
 

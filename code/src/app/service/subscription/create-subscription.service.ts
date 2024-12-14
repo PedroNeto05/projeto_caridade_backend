@@ -7,7 +7,7 @@ import {
 import { ICreateSubscriptionService } from '@/interfaces/subscription/subscription-service.interface';
 import { createSubscriptionSchema } from '@/schemas/subscription.schema';
 import httpError from 'http-errors';
-export class CreateEventService implements ICreateSubscriptionService {
+export class CreateSubscriptionService implements ICreateSubscriptionService {
   constructor(
     private findSubscriptionByUserIdAndEventIdRepository: IFindSubscriptionByUserIdAndEventIdRepository,
     private createSubscriptionRepository: ICreateSubscriptionRepository,
