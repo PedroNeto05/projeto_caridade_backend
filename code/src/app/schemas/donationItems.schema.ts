@@ -7,3 +7,8 @@ export const createDonationItemsSchema = z.object({
   description: z.string().min(10).optional(),
   quantity: z.number().min(1),
 });
+
+export const deleteDonationItemsSchema = z.object({
+  userId: z.number(),
+  donationId: z.number(),
+});
