@@ -12,8 +12,6 @@ export class FindUserByIdService implements IFindUserByIdService {
 
     const user = await this.findUserByIdRepository.findById(id);
 
-    // TODO - retirar a senha do usuario, o created_at e updated_at
-
     if (!user) {
       throw new httpError.NotFound('user not found');
     }
