@@ -1,7 +1,7 @@
 import { ICreateDonationService } from '@/interfaces/donation/donation-service.interface';
 import type { Request, Response, NextFunction } from 'express';
 
-export class CreateEventController {
+export class CreateDonationController {
   constructor(private createDonationService: ICreateDonationService) {}
   async handle(req: Request, res: Response, next: NextFunction) {
     try {
