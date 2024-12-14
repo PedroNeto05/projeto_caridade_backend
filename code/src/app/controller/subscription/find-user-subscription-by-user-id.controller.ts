@@ -12,7 +12,7 @@ export class FindUserSubscriptionByUserIdController {
         await this.findUserSubscriptionsByUserIdService.execute({
           userId: parseInt(userId),
         });
-      return res.status(201).json(subscription);
+      return res.status(200).json(subscription);
     } catch (error) {
       next(error);
     }
