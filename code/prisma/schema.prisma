@@ -69,6 +69,7 @@ model Subscription {
   User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   Event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
 
+  @@unique([userId, eventId])
   @@index([userId])
   @@index([eventId])
 }
