@@ -5,3 +5,7 @@ export const createDonationSchema = z.object({
   eventId: z.number(),
   subscriberId: z.number(),
 });
+
+export const findUserDonationsSchema = z.object({
+  userId: z.number(),
+});
