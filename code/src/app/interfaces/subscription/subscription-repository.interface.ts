@@ -1,4 +1,5 @@
 import { CreateSubscriptionDTO } from '@/dtos/subscription/create-subscroption.dto';
+import { DeleteUserSubscriptionDTO } from '@/dtos/subscription/delete-subscroption.dto';
 import { FindEventSubscriptionsDTO } from '@/dtos/subscription/find-event-subscriptions.dto';
 import { FindSubscriptionByUserIdAndEventIdDTO } from '@/dtos/subscription/find-subscription-by-userId-end-eventId.dto';
 import { FindUserSubscriptionByUserIdDTO } from '@/dtos/subscription/find-user-subscription-by-userId.dto';
@@ -24,4 +25,8 @@ export interface IFindEventSubscriptionsRepository {
   findEventSubscription(
     params: FindEventSubscriptionsDTO
   ): Promise<Subscription[]>;
+}
+
+export interface IDeleteUserSubscriptionRepository {
+  delete(params: DeleteUserSubscriptionDTO): Promise<void>;
 }

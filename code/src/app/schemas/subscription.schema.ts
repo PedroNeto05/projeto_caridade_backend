@@ -14,3 +14,8 @@ export const findUserSubscriptionByUserIdSchema = z.object({
 export const findEventSubscriptionsSchema = z.object({
   eventId: z.number(),
 });
+
+export const deleteUserSubscription = z.object({
+  userId: z.number(),
+  eventId: z.number(),
+});
