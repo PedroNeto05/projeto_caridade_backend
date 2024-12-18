@@ -34,12 +34,12 @@ subscriptionRoutes.get('/user/:userId', (req, res, next) => {
 
 const findSubscriptionByUserIdAndEventIdRepository =
   new FindSubscriptionByUserIdAndEventIdRepository();
-const findEventById = new FindEventByIdRepository();
+const findEventByIdRepository = new FindEventByIdRepository();
 const createSubscriptionRepository = new CreateSubscriptionRepository();
 const createSubscriptionService = new CreateSubscriptionService(
   findSubscriptionByUserIdAndEventIdRepository,
   createSubscriptionRepository,
-  findEventById
+  findEventByIdRepository
 );
 const createSubscriptionController = new CreateSubscriptionController(
   createSubscriptionService
@@ -63,7 +63,8 @@ subscriptionRoutes.get('/event/:eventId', (req, res, next) => {
 
 const deleteUserSubscriptionRepository = new DeleteUserSubscriptionRepository();
 const deleteUserSubscriptionService = new DeleteUserSubscriptionService(
-  deleteUserSubscriptionRepository
+  deleteUserSubscriptionRepository,
+  findEventByIdRepository
 );
 const deleteUserSubscriptionController = new DeleteUserSubscriptionController(
   deleteUserSubscriptionService
