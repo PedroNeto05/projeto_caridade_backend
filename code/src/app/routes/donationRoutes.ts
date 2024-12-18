@@ -1,4 +1,3 @@
-// TODO - INSTANCIAR AS ROTAS DE DONATION
 import { CreateDonationController } from '@/controller/donation/create-donation.controller';
 import { CreateDonationRepository } from '@/repository/donation/create-donation.repository';
 import { CreateDonationService } from '@/service/donation/create-donation.service';
