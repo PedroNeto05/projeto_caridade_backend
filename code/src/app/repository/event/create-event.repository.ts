@@ -10,6 +10,7 @@ export class CreateEventRepository implements ICreateEventRepository {
         location: params.location,
         date: params.date,
         createdById: params.userId,
+        description: params.description,
       },
     });
   }
