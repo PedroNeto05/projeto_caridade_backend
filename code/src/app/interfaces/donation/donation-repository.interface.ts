@@ -21,5 +21,5 @@ export interface IDeleteDonationRepository {
 }
 
 export interface IFindDoantionByIdRepository {
-  findById(donationId: number): Promise<Donation>;
+  findById(donationId: number): Promise<Donation | null>;
 }
