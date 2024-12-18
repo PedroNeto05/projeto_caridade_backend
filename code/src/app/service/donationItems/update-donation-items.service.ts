@@ -38,13 +38,16 @@ export class UpdateDonationItemsService implements IUpdateDonationItemsService {
   }
 
   async getOwner(donationItemId: number): Promise<number | null> {
-    const item = await this.findDonationItemByIdRepository.findById(donationItemId);
+    const item =
+      await this.findDonationItemByIdRepository.findById(donationItemId);
 
     if (!item) {
-        throw httpError.NotFound('Donation item not found');
-      }
+      throw httpError.NotFound('Donation item not found');
+    }
 
-    const donation = await this.findDonationByIdRepository.findById(item.donationId);
+    const donation = await this.findDonationByIdRepository.findById(
+      item.donationId
+    );
 
     if (!donation) {
       throw httpError.NotFound('Donation item not found');
@@ -56,6 +59,6 @@ export class UpdateDonationItemsService implements IUpdateDonationItemsService {
       throw httpError.NotFound('Donation item not found');
     }
 
-    return event.updatedById;
+    return event.createdById;
   }
 }
