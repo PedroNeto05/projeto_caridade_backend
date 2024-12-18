@@ -7,11 +7,13 @@ export class UpdateDonationItemsRepository
 {
   async update(params: UpdateDonationItemsDTO): Promise<void> {
     await prisma.donationItem.update({
+      where: {
+        id: params.donationItemId,
+      },
       data: {
-        newType: params.newType,
-        newDescription: params.newDescription,
-        newQuantity: params.newQuantity,
-        donationItemId: params.donationItemId,
+        type: params.newType,
+        description: params.newDescription,
+        quantity: params.newQuantity,
       },
     });
   }
