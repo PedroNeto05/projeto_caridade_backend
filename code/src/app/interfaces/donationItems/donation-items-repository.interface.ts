@@ -13,5 +13,6 @@ export interface IDeleteDonationItemsRepository {
   delete(params: DeleteDonationItemsDTO): Promise<void>;
 }
 export interface IFindDonationItemByIdRepository {
-  findById(doantionItemId: number): Promise<DonationItem | null>;
+  findById(donationItemId: number): Promise<DonationItem | null>;
 }
+
