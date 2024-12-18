@@ -28,7 +28,7 @@ const findUserSubscriptionByUserIdController =
     findUserSubscriptionByUserIdService
   );
 
-subscriptionRoutes.get('/:userId', (req, res, next) => {
+subscriptionRoutes.get('/user/:userId', (req, res, next) => {
   findUserSubscriptionByUserIdController.handle(req, res, next);
 });
 
@@ -57,7 +57,7 @@ const findEventSubscriptionController = new FindEventSubscriptionsController(
   findEventSubscriptionService
 );
 
-subscriptionRoutes.get('/:eventId', (req, res, next) => {
+subscriptionRoutes.get('/event/:eventId', (req, res, next) => {
   findEventSubscriptionController.handle(req, res, next);
 });
 
