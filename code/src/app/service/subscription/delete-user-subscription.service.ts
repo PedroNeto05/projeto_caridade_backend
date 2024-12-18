@@ -21,8 +21,6 @@ export class DeleteUserSubscriptionService
 
     const event = await this.findEventByIdRepository.findById(eventId);
 
-    console.log(event);
-
     if (!event) {
       throw httpError.NotFound('Event not found');
     }
