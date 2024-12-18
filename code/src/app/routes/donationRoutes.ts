@@ -30,7 +30,7 @@ const createDonationService = new CreateDonationService(
 const createDonationController = new CreateDonationController(
   createDonationService
 );
-donationRoutes.post('/:eventId/:subscriberId ', authLogin, (req, res, next) => {
+donationRoutes.post('/:eventId/:subscriberId', authLogin, (req, res, next) => {
   createDonationController.handle(req, res, next);
 });
 

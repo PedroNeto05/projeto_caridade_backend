@@ -58,7 +58,7 @@ const deleteDonationItemsController = new DeleteDonationItemsController(
 );
 
 donationItemsRoutes.delete(
-  '/donation/:donationId/donationItems/:donationItemId ',
+  '/donation/:donationId/donationItems/:donationItemId',
   authLogin,
   (req, res, next) => {
     deleteDonationItemsController.handle(req, res, next);
