@@ -57,7 +57,7 @@ const findEventSubscriptionController = new FindEventSubscriptionsController(
   findEventSubscriptionService
 );
 
-subscriptionRoutes.get('/', (req, res, next) => {
+subscriptionRoutes.get('/:eventId', (req, res, next) => {
   findEventSubscriptionController.handle(req, res, next);
 });
 
