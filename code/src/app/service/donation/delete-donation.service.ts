@@ -9,15 +9,15 @@ import { deleteDonationSchema } from '@/schemas/donation.schema';
 import httpError from 'http-errors';
 export class DeleteDonationService implements IDeleteDonationService {
   constructor(
-    private findDonationById: IFindDoantionByIdRepository,
-    private findEventById: IFindEventByIdRepository,
+    private findDonationByIdRepository: IFindDoantionByIdRepository,
+    private findEventByIdRepository: IFindEventByIdRepository,
     private deleteDonationRepository: IDeleteDonationRepository
   ) {}
 
   async execute(params: DeleteDonationDTO): Promise<void> {
     const { userId, eventId, donationId } = deleteDonationSchema.parse(params);
 
-    const event = await this.findEventById.findById(eventId);
+    const event = await this.findEventByIdRepository.findById(eventId);
 
     if (!event) return;
 
@@ -27,7 +27,7 @@ export class DeleteDonationService implements IDeleteDonationService {
       );
     }
 
-    const donation = await this.findDonationById.findById(donationId);
+    const donation = await this.findDonationByIdRepository.findById(donationId);
 
     if (!donation) {
       throw httpError.NotFound('donation not found');
