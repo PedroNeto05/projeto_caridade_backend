@@ -1,7 +1,7 @@
 import { IDeleteDonationService } from '@/interfaces/donation/donation-service.interface';
 import type { Request, Response, NextFunction } from 'express';
 
-export class DeleteEventController {
+export class DeleteDonationController {
   constructor(private deleteDonationService: IDeleteDonationService) {}
   async handle(req: Request, res: Response, next: NextFunction) {
     try {

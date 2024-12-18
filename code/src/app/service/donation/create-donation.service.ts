@@ -7,8 +7,8 @@ import { createDonationSchema } from '@/schemas/donation.schema';
 import httpError from 'http-errors';
 export class CreateDonationService implements ICreateDonationService {
   constructor(
-    private findSubscriptionByUserIdAndEventId: IFindSubscriptionByUserIdAndEventIdRepository,
-    private findEventById: IFindEventByIdRepository,
+    private findSubscriptionByUserIdAndEventIdRepository: IFindSubscriptionByUserIdAndEventIdRepository,
+    private findEventByIdRepository: IFindEventByIdRepository,
     private createDonationRepository: ICreateDonationRepository
   ) {}
 
@@ -17,16 +17,18 @@ export class CreateDonationService implements ICreateDonationService {
       createDonationSchema.parse(params);
 
     const subscription =
-      await this.findSubscriptionByUserIdAndEventId.findByUserIdAndEventId({
-        userId: subscriberId,
-        eventId,
-      });
+      await this.findSubscriptionByUserIdAndEventIdRepository.findByUserIdAndEventId(
+        {
+          userId: subscriberId,
+          eventId,
+        }
+      );
 
     if (!subscription) {
       throw httpError.NotFound('user has no subscription');
     }
 
-    const event = await this.findEventById.findById(eventId);
+    const event = await this.findEventByIdRepository.findById(eventId);
 
     if (!event) return;
 

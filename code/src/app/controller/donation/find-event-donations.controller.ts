@@ -1,7 +1,7 @@
 import { IFindEventDonationsService } from '@/interfaces/donation/donation-service.interface';
 import type { Request, Response, NextFunction } from 'express';
 
-export class FindUserDonationsController {
+export class FindEventDonationsController {
   constructor(private findEventDonationsService: IFindEventDonationsService) {}
   async handle(req: Request, res: Response, next: NextFunction) {
     try {
