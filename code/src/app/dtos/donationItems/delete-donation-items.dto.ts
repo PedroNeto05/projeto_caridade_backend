@@ -1,5 +1,6 @@
 export interface DeleteDonationItemsDTO {
-    userId: number;
-    donationId: number;
-  }
-  
+  userId: number;
+  donationId: number;
+  donationItemId: number;
+}
+

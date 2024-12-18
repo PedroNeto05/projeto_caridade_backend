@@ -13,8 +13,8 @@ export class DeleteDonationItemsService implements IDeleteDonationItemsService {
   ) {}
 
   async execute(params: DeleteDonationItemsDTO): Promise<void> {
-     const { userId, donationId } =
-          deleteDonationItemsSchema.parse(params);
+    const { userId, donationId, donationItemId } =
+      deleteDonationItemsSchema.parse(params);
 
     const owner = await this.getOwner(donationId);
 
@@ -29,6 +29,7 @@ export class DeleteDonationItemsService implements IDeleteDonationItemsService {
     await this.deleteDonationItemsRepository.delete({
       userId,
       donationId,
+      donationItemId,
     });
   }
 
@@ -45,6 +46,6 @@ export class DeleteDonationItemsService implements IDeleteDonationItemsService {
       throw httpError.NotFound('Donation not found');
     }
 
-    return event.deletedById;
+    return event.createdById;
   }
 }

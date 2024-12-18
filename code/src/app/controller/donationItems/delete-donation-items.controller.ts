@@ -7,11 +7,12 @@ export class DeleteDonationItemsController {
   ) {}
   async handle(req: Request, res: Response, next: NextFunction) {
     try {
-      const { donationId } = req.params;
+      const { donationId, donationItemId } = req.params;
       const { userId } = req;
 
       await this.deleteDonationItemsService.execute({
         donationId: parseInt(donationId),
+        donationItemId: parseInt(donationItemId),
         userId,
       });
       return res.status(201).send();
