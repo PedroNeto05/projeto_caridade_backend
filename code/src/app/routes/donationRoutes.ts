@@ -52,7 +52,7 @@ const findEventDonationsService = new FindEventDonationsService(
 const findEventDonationsController = new FindEventDonationsController(
   findEventDonationsService
 );
-donationRoutes.get('/events/:eventId', (req, res, next) => {
+donationRoutes.get('/event/:eventId', (req, res, next) => {
   findEventDonationsController.handle(req, res, next);
 });
 
