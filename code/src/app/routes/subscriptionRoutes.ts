@@ -64,7 +64,8 @@ subscriptionRoutes.get('/event/:eventId', (req, res, next) => {
 const deleteUserSubscriptionRepository = new DeleteUserSubscriptionRepository();
 const deleteUserSubscriptionService = new DeleteUserSubscriptionService(
   deleteUserSubscriptionRepository,
-  findEventByIdRepository
+  findEventByIdRepository,
+  findSubscriptionByUserIdAndEventIdRepository
 );
 const deleteUserSubscriptionController = new DeleteUserSubscriptionController(
   deleteUserSubscriptionService
