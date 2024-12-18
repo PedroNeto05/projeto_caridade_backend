@@ -40,7 +40,7 @@ const findUserDonationsService = new FindUserDonationsService(
 const findUserDonationsController = new FindUserDonationsController(
   findUserDonationsService
 );
-donationRoutes.get('/', (req, res, next) => {
+donationRoutes.get('/user/:userId', (req, res, next) => {
   findUserDonationsController.handle(req, res, next);
 });
 
@@ -51,7 +51,7 @@ const findEventDonationsService = new FindEventDonationsService(
 const findEventDonationsController = new FindEventDonationsController(
   findEventDonationsService
 );
-donationRoutes.get('/', (req, res, next) => {
+donationRoutes.get('/events/:eventId', (req, res, next) => {
   findEventDonationsController.handle(req, res, next);
 });
 
@@ -69,3 +69,5 @@ const deleteDonationController = new DeleteDonationController(
 donationRoutes.delete('/:eventId/:donationId', (req, res, next) => {
   deleteDonationController.handle(req, res, next);
 });
+
+export { donationRoutes };
