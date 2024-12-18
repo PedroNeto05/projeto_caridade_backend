@@ -4,6 +4,8 @@ import { errorMiddleware } from './middlewares/error';
 import { loginRoutes } from './routes/loginRoutes';
 import { eventRoutes } from './routes/eventRoutes';
 import { subscriptionRoutes } from './routes/subscriptionRoutes';
+import { donationRoutes } from './routes/donationRoutes';
+import { donationItemsRoutes } from './routes/donationItemsRoutes';
 
 class App {
   public app: Application;
@@ -27,6 +29,8 @@ class App {
     this.app.use('/login', loginRoutes);
     this.app.use('/event', eventRoutes);
     this.app.use('/subscription', subscriptionRoutes);
+    this.app.use('/donation', donationRoutes);
+    this.app.use('/donationItems', donationItemsRoutes);
   }
 }
 
