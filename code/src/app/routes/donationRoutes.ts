@@ -14,6 +14,7 @@ import { DeleteDonationController } from '@/controller/donation/delete-donation.
 import { DeleteDonationService } from '@/service/donation/delete-donation.service';
 import { DeleteDonationRepository } from '@/repository/donation/delete-donation.repository';
 import { FindDonationByIdRepository } from '@/repository/donation/find-donation-by-id.repository';
+import { authLogin } from '@/middlewares/authLogin';
 
 const donationRoutes = Router();
 
@@ -29,7 +30,7 @@ const createDonationService = new CreateDonationService(
 const createDonationController = new CreateDonationController(
   createDonationService
 );
-donationRoutes.post('/:eventId/:subscriberId ', (req, res, next) => {
+donationRoutes.post('/:eventId/:subscriberId ', authLogin, (req, res, next) => {
   createDonationController.handle(req, res, next);
 });
 
@@ -66,7 +67,7 @@ const deleteDonationController = new DeleteDonationController(
   deleteDonationService
 );
 
-donationRoutes.delete('/:eventId/:donationId', (req, res, next) => {
+donationRoutes.delete('/:eventId/:donationId', authLogin, (req, res, next) => {
   deleteDonationController.handle(req, res, next);
 });
 
