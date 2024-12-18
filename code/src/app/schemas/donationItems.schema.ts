@@ -18,11 +18,9 @@ export const updateDonationItemsSchema = z.object({
 
 export const deleteDonationItemsSchema = z.object({
   userId: z.number(),
-  donationId: z.number(),
   donationItemId: z.number(),
 });
 
 export const findDonationItemByIdSchema = z.object({
   id: z.number(),
 });
-

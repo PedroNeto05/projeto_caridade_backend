@@ -43,7 +43,7 @@ const updateDonationItemsController = new UpdateDonationItemsController(
   updateDonationItemsService
 );
 
-donationItemsRoutes.put('/:donationItemId ', authLogin, (req, res, next) => {
+donationItemsRoutes.put('/:donationItemId', authLogin, (req, res, next) => {
   updateDonationItemsController.handle(req, res, next);
 });
 
@@ -51,14 +51,15 @@ const deleteDonationItemsRepository = new DeleteDonationItemsRepository();
 const deleteDonationItemsService = new DeleteDonationItemsService(
   findDonationByIdRepository,
   findEventByIdRepository,
-  deleteDonationItemsRepository
+  deleteDonationItemsRepository,
+  findDonationItemByIdRepository
 );
 const deleteDonationItemsController = new DeleteDonationItemsController(
   deleteDonationItemsService
 );
 
 donationItemsRoutes.delete(
-  '/donation/:donationId/donationItems/:donationItemId',
+  '/donationItems/:donationItemId',
   authLogin,
   (req, res, next) => {
     deleteDonationItemsController.handle(req, res, next);
