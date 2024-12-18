@@ -5,10 +5,10 @@ export class FindUserDonationsController {
   constructor(private findUserDonationsService: IFindUserDonationsService) {}
   async handle(req: Request, res: Response, next: NextFunction) {
     try {
-      const { userId } = req;
+      const { userId } = req.params;
 
       const donations = await this.findUserDonationsService.execute({
-        userId,
+        userId: parseInt(userId),
       });
       return res.status(200).json(donations);
     } catch (error) {
