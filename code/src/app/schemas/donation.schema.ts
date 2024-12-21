@@ -19,3 +19,8 @@ export const deleteDonationSchema = z.object({
   eventId: z.number(),
   donationId: z.number(),
 });
+
+export const findUserEventDonationsSchema = z.object({
+  userId: z.number(),
+  eventId: z.number(),
+});

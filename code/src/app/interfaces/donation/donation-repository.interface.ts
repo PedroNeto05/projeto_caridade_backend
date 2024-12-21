@@ -3,6 +3,7 @@ import { Donation } from '@prisma/client';
 import { FindUserDonationsDTO } from '@/dtos/donation/find-user-donations.dto';
 import { FindEventDonationsDTO } from '@/dtos/donation/find-event-donations.dto';
 import { DeleteDonationDTO } from '@/dtos/donation/delete-donation.dto';
+import { FindUserEventDonationsDTO } from '@/dtos/donation/find-user-event-donations.dto';
 
 export interface ICreateDonationRepository {
   save(params: CreateDonationDTO): Promise<void>;
@@ -22,4 +23,9 @@ export interface IDeleteDonationRepository {
 
 export interface IFindDoantionByIdRepository {
   findById(donationId: number): Promise<Donation | null>;
+}
+
+
+export interface IFindUserEventDonationsRepository {
+  findById(params: FindUserEventDonationsDTO): Promise<Donation[]>
 }

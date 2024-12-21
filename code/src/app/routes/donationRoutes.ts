@@ -15,6 +15,10 @@ import { DeleteDonationService } from '@/service/donation/delete-donation.servic
 import { DeleteDonationRepository } from '@/repository/donation/delete-donation.repository';
 import { FindDonationByIdRepository } from '@/repository/donation/find-donation-by-id.repository';
 import { authLogin } from '@/middlewares/authLogin';
+import { FindUserEventDonationsController } from '@/controller/donation/find-user-event-donations.controller';
+import { FindUserEventDonationsService } from '@/service/donation/find-user-event-donations.service';
+import { FindUserEventDonationsRepository } from '@/repository/donation/find-user-event-donations.repository';
+import { FindUserByIdRepository } from '@/repository/user/find-user-by-id.repository';
 
 const donationRoutes = Router();
 
@@ -57,6 +61,20 @@ donationRoutes.get('/event/:eventId', (req, res, next) => {
 });
 
 const findDonationByIdRepository = new FindDonationByIdRepository();
+const findUserByIdRepository = new FindUserByIdRepository();
+const findUserEventDonationsRepository = new FindUserEventDonationsRepository();
+const findUserEventDonationsService = new FindUserEventDonationsService(
+  findEventByIdRepository,
+  findUserEventDonationsRepository,
+  findUserByIdRepository
+);
+const findUserEventDonationsController = new FindUserEventDonationsController(
+  findUserEventDonationsService
+);
+donationRoutes.get('/event/:eventId/user/:userId', (req, res, next) => {
+  findUserEventDonationsController.handle(req, res, next);
+});
+
 const deleteDonationRepository = new DeleteDonationRepository();
 const deleteDonationService = new DeleteDonationService(
   findDonationByIdRepository,
