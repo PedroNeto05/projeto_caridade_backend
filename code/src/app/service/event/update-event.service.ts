@@ -37,7 +37,7 @@ export class UpdateEventService implements IUpdateEventService {
       newLocation
     );
 
-    if (!compareResult) {
+    if (compareResult) {
       throw new httpError.Conflict(compareResult);
     }
 
@@ -73,7 +73,5 @@ export class UpdateEventService implements IUpdateEventService {
     if (newLocation === event.location) {
       return 'The new location is the same as the current location.';
     }
-
-    return 'No conflicts detected. Data is different.';
   }
 }
