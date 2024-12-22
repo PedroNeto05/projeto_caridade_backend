@@ -24,13 +24,13 @@ export class FindUserEventDonationsService
       throw new httpError.NotFound('User not found');
     }
 
-    const event = this.findEventByIdRepository.findById(eventId);
+    const event = await this.findEventByIdRepository.findById(eventId);
 
     if (!event) {
       throw httpError.NotFound('Event not found');
     }
 
-    const donations = this.findUserEventDonationsRepository.findById({
+    const donations = await this.findUserEventDonationsRepository.findById({
       userId,
       eventId,
     });

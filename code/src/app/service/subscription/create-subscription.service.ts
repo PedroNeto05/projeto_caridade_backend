@@ -16,7 +16,7 @@ export class CreateSubscriptionService implements ICreateSubscriptionService {
   async execute(params: CreateSubscriptionDTO): Promise<void> {
     const { eventId, userId } = createSubscriptionSchema.parse(params);
 
-    const event = this.findEventByIdRepository.findById(eventId);
+    const event = await this.findEventByIdRepository.findById(eventId);
 
     if (!event) {
       throw httpError.NotFound('Event not found');
