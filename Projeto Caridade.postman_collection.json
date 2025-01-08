@@ -1,0 +1,790 @@
+{
+	"info": {
+		"_postman_id": "348448b7-327a-4ded-9220-f8bcc9136a7f",
+		"name": "Projeto Caridade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40111835"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pedro\",\n    \"email\": \"teste@teste.com\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/:user_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ4NzYyNTMsImV4cCI6MTczNDk2MjY1M30.SeoYBnfgUklML66sHl8Kcwo5NiSaRQk3InjW9vFhp48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currentPassword\":\"123456789\",\n    \"newName\": \"Pedro Neto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzMxODE5MzEsImV4cCI6MTczMzI2ODMzMX0.4mKz_ebpvUHgPwlS74HX3oecSHgWCoGMysZVIzVuXnA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"asdasdasdasd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"teste@teste.com\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Create Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ4NzYyNTMsImV4cCI6MTczNDk2MjY1M30.SeoYBnfgUklML66sHl8Kcwo5NiSaRQk3InjW9vFhp48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Evento Teste\",\n    \"location\": \"Casa de alguem\",\n    \"date\": \"2024-12-03T14:35:00Z\",\n    \"description\": \"QUALQUER COISA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/event/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ4NzYyNTMsImV4cCI6MTczNDk2MjY1M30.SeoYBnfgUklML66sHl8Kcwo5NiSaRQk3InjW9vFhp48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newDescription\": \"Evento Teste na casa de alguem\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/event/:event_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"event",
+								":event_id"
+							],
+							"variable": [
+								{
+									"key": "event_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/event/:event_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"event",
+								":event_id"
+							],
+							"variable": [
+								{
+									"key": "event_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/event/name/:name",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"event",
+								"name",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "Evento Teste"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/event/:event_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"event",
+								":event_id"
+							],
+							"variable": [
+								{
+									"key": "event_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CreatedBy Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/event/user/:createdBy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"event",
+								"user",
+								":createdBy"
+							],
+							"variable": [
+								{
+									"key": "createdBy",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/event",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "Create Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ4NzYyNTMsImV4cCI6MTczNDk2MjY1M30.SeoYBnfgUklML66sHl8Kcwo5NiSaRQk3InjW9vFhp48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/subscription/:eventId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subscription",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User Subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/subscription/user/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subscription",
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Events Subs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/subscription/event/:eventId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subscription",
+								"event",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete subs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ1NDExOTIsImV4cCI6MTczNDYyNzU5Mn0.3D8y7J89fi4kboP2n9-5kMfaRe2rsGfj2fT0dewqYSQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/subscription/:eventId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subscription",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Donation",
+			"item": [
+				{
+					"name": "Create donation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ4NzYyNTMsImV4cCI6MTczNDk2MjY1M30.SeoYBnfgUklML66sHl8Kcwo5NiSaRQk3InjW9vFhp48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/donation/:eventId/:subscriberId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donation",
+								":eventId",
+								":subscriberId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								},
+								{
+									"key": "subscriberId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find user donations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/donation/user/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donation",
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find event donations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/donation/event/:eventId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donation",
+								"event",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find user donations in event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/donation/event/:eventId/user/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donation",
+								"event",
+								":eventId",
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								},
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete donation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ1MzAyMTQsImV4cCI6MTczNDYxNjYxNH0.YOuWNIgjsXRjpgmb-esclog_Dx2-q_CfvS6OBVgftb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/donation/:eventId/:donationId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donation",
+								":eventId",
+								":donationId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "1"
+								},
+								{
+									"key": "donationId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DonationItem",
+			"item": [
+				{
+					"name": "Create donation item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ4NzYyNTMsImV4cCI6MTczNDk2MjY1M30.SeoYBnfgUklML66sHl8Kcwo5NiSaRQk3InjW9vFhp48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"qwdiopqweiopiopqweiopop\",\n    \"quantity\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/donationItems/:donationId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donationItems",
+								":donationId"
+							],
+							"variable": [
+								{
+									"key": "donationId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update donation item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ1Mzg3MDksImV4cCI6MTczNDYyNTEwOX0.OV0-XL9z5QLTZdzoBYBVKNV-yRyJOWar0gwsqoHtt48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newType\": \"teste\",\n    \"newDescription\": \"teste desc\",\n    \"newQuantity\":123123\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/donationItems/:donationItemId ",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donationItems",
+								":donationItemId "
+							],
+							"variable": [
+								{
+									"key": "donationItemId ",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete donation item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MzQ1MzAyMTQsImV4cCI6MTczNDYxNjYxNH0.YOuWNIgjsXRjpgmb-esclog_Dx2-q_CfvS6OBVgftb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/donationItems/donationItems/:donationItemId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"donationItems",
+								"donationItems",
+								":donationItemId"
+							],
+							"variable": [
+								{
+									"key": "donationItemId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
